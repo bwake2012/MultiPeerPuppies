@@ -43,6 +43,44 @@ class PeerSessionCoordinator: NSObject {
 
         mcSession.delegate = self
     }
+    
+    deinit {
+        
+        mcAdvertiserAssistant.stop()
+        mcSession.disconnect()
+    }
+    
+    var connectedPeerCount: Int { return mcSession.connectedPeers.count }
+    
+    fileprivate func updateConnectedPeerCount() -> Void {
+        
+        let peerCount = connectedPeerCount
+        
+        DispatchQueue.main.async {
+            
+            [weak self] in
+            
+            if let strongSelf = self, let delegate = strongSelf.delegate {
+                
+                delegate.peerCountChanged( count: peerCount )
+            }
+        }
+    }
+
+    func startHosting( info: [String: String], action: UIAlertAction! ) {
+        
+        mcAdvertiserAssistant = MCAdvertiserAssistant( serviceType: multiPeerServiceType, discoveryInfo: info, session: mcSession )
+        mcAdvertiserAssistant.start()
+    }
+    
+    func joinSession( action: UIAlertAction! ) {
+        
+        let mcBrowser = MCBrowserViewController( serviceType: multiPeerServiceType, session: mcSession )
+        mcBrowser.delegate = self
+        
+        delegate?.presentBrowser( mcBrowser, animated: true )
+    }
+    
 }
 
 extension PeerSessionCoordinator: MCSessionDelegate {
@@ -113,51 +151,45 @@ extension PeerSessionCoordinator: MCSessionDelegate {
         case MCSessionState.notConnected:
             print("Not Connected: \(peerID.displayName)")
         }
-        
-        DispatchQueue.main.async {
-            
-            [weak self] in
-            
-            if let strongSelf = self {
-                
-                strongSelf.delegate?.peerCountChanged(count: session.connectedPeers.count )
-            }
-        }
+     
+        updateConnectedPeerCount()
     }
 }
 
 extension PeerSessionCoordinator: MCBrowserViewControllerDelegate {
     
-    func startHosting( info: [String: String], action: UIAlertAction! ) {
-        
-        mcAdvertiserAssistant = MCAdvertiserAssistant( serviceType: multiPeerServiceType, discoveryInfo: info, session: mcSession )
-        mcAdvertiserAssistant.start()
-    }
-    
-    func joinSession( action: UIAlertAction! ) {
-        
-        let mcBrowser = MCBrowserViewController( serviceType: multiPeerServiceType, session: mcSession )
-        mcBrowser.delegate = self
-        
-        delegate?.presentBrowser( mcBrowser, animated: true )
-    }
-    
     func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
+        
+        let peerCount = connectedPeerCount
         
         DispatchQueue.main.async {
             
             [weak self] in
             
-            if let strongSelf = self {
+            if let strongSelf = self, let delegate = strongSelf.delegate {
                 
                 strongSelf.delegate?.closeBrowser( true, animated: true )
+                
+                delegate.peerCountChanged( count: peerCount )
             }
         }
     }
     
     func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
         
-        delegate?.closeBrowser( false, animated: true )
+        let peerCount = connectedPeerCount
+        
+        DispatchQueue.main.async {
+            
+            [weak self] in
+            
+            if let strongSelf = self, let delegate = strongSelf.delegate {
+                
+                delegate.closeBrowser( false, animated: true )
+                
+                delegate.peerCountChanged( count: peerCount )
+            }
+        }
     }
     
     
