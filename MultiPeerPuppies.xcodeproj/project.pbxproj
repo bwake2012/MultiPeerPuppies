@@ -12,16 +12,28 @@
 		C497FA441E9D1B0000E5F0D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C497FA421E9D1B0000E5F0D1 /* Main.storyboard */; };
 		C497FA461E9D1B0000E5F0D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C497FA451E9D1B0000E5F0D1 /* Assets.xcassets */; };
 		C497FA491E9D1B0000E5F0D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C497FA471E9D1B0000E5F0D1 /* LaunchScreen.storyboard */; };
+		C497FA511E9D249F00E5F0D1 /* AnnaAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = C497FA501E9D249F00E5F0D1 /* AnnaAvatar.png */; };
+		C497FA541E9D24CE00E5F0D1 /* Buddy.png in Resources */ = {isa = PBXBuildFile; fileRef = C497FA531E9D24CE00E5F0D1 /* Buddy.png */; };
+		C497FA571E9D262C00E5F0D1 /* Boo.png in Resources */ = {isa = PBXBuildFile; fileRef = C497FA551E9D262C00E5F0D1 /* Boo.png */; };
+		C497FA581E9D262C00E5F0D1 /* Pontus.png in Resources */ = {isa = PBXBuildFile; fileRef = C497FA561E9D262C00E5F0D1 /* Pontus.png */; };
+		C497FA5A1E9D289700E5F0D1 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = C497FA591E9D289700E5F0D1 /* blank.png */; };
+		C497FA5E1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497FA5D1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C497FA3B1E9D1B0000E5F0D1 /* MultiPeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiPeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C497FA3B1E9D1B0000E5F0D1 /* MultiPeerPuppies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiPeerPuppies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C497FA3E1E9D1B0000E5F0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C497FA401E9D1B0000E5F0D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C497FA431E9D1B0000E5F0D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C497FA451E9D1B0000E5F0D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C497FA481E9D1B0000E5F0D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C497FA4A1E9D1B0000E5F0D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C497FA501E9D249F00E5F0D1 /* AnnaAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AnnaAvatar.png; sourceTree = "<group>"; };
+		C497FA531E9D24CE00E5F0D1 /* Buddy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buddy.png; sourceTree = "<group>"; };
+		C497FA551E9D262C00E5F0D1 /* Boo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Boo.png; sourceTree = "<group>"; };
+		C497FA561E9D262C00E5F0D1 /* Pontus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pontus.png; sourceTree = "<group>"; };
+		C497FA591E9D289700E5F0D1 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
+		C497FA5D1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerSessionCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +58,7 @@
 		C497FA3C1E9D1B0000E5F0D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C497FA3B1E9D1B0000E5F0D1 /* MultiPeer.app */,
+				C497FA3B1E9D1B0000E5F0D1 /* MultiPeerPuppies.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,22 +66,36 @@
 		C497FA3D1E9D1B0000E5F0D1 /* MultiPeer */ = {
 			isa = PBXGroup;
 			children = (
+				C497FA521E9D24A400E5F0D1 /* Images */,
 				C497FA3E1E9D1B0000E5F0D1 /* AppDelegate.swift */,
-				C497FA401E9D1B0000E5F0D1 /* ViewController.swift */,
-				C497FA421E9D1B0000E5F0D1 /* Main.storyboard */,
-				C497FA451E9D1B0000E5F0D1 /* Assets.xcassets */,
-				C497FA471E9D1B0000E5F0D1 /* LaunchScreen.storyboard */,
 				C497FA4A1E9D1B0000E5F0D1 /* Info.plist */,
+				C497FA471E9D1B0000E5F0D1 /* LaunchScreen.storyboard */,
+				C497FA421E9D1B0000E5F0D1 /* Main.storyboard */,
+				C497FA5D1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift */,
+				C497FA401E9D1B0000E5F0D1 /* ViewController.swift */,
+				C497FA451E9D1B0000E5F0D1 /* Assets.xcassets */,
 			);
 			path = MultiPeer;
+			sourceTree = "<group>";
+		};
+		C497FA521E9D24A400E5F0D1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C497FA501E9D249F00E5F0D1 /* AnnaAvatar.png */,
+				C497FA551E9D262C00E5F0D1 /* Boo.png */,
+				C497FA531E9D24CE00E5F0D1 /* Buddy.png */,
+				C497FA561E9D262C00E5F0D1 /* Pontus.png */,
+				C497FA591E9D289700E5F0D1 /* blank.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C497FA3A1E9D1B0000E5F0D1 /* MultiPeer */ = {
+		C497FA3A1E9D1B0000E5F0D1 /* MultiPeerPuppies */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C497FA4D1E9D1B0000E5F0D1 /* Build configuration list for PBXNativeTarget "MultiPeer" */;
+			buildConfigurationList = C497FA4D1E9D1B0000E5F0D1 /* Build configuration list for PBXNativeTarget "MultiPeerPuppies" */;
 			buildPhases = (
 				C497FA371E9D1B0000E5F0D1 /* Sources */,
 				C497FA381E9D1B0000E5F0D1 /* Frameworks */,
@@ -79,9 +105,9 @@
 			);
 			dependencies = (
 			);
-			name = MultiPeer;
+			name = MultiPeerPuppies;
 			productName = MultiPeer;
-			productReference = C497FA3B1E9D1B0000E5F0D1 /* MultiPeer.app */;
+			productReference = C497FA3B1E9D1B0000E5F0D1 /* MultiPeerPuppies.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +127,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C497FA361E9D1B0000E5F0D1 /* Build configuration list for PBXProject "MultiPeer" */;
+			buildConfigurationList = C497FA361E9D1B0000E5F0D1 /* Build configuration list for PBXProject "MultiPeerPuppies" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -114,7 +140,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C497FA3A1E9D1B0000E5F0D1 /* MultiPeer */,
+				C497FA3A1E9D1B0000E5F0D1 /* MultiPeerPuppies */,
 			);
 		};
 /* End PBXProject section */
@@ -124,8 +150,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C497FA571E9D262C00E5F0D1 /* Boo.png in Resources */,
 				C497FA491E9D1B0000E5F0D1 /* LaunchScreen.storyboard in Resources */,
 				C497FA461E9D1B0000E5F0D1 /* Assets.xcassets in Resources */,
+				C497FA511E9D249F00E5F0D1 /* AnnaAvatar.png in Resources */,
+				C497FA5A1E9D289700E5F0D1 /* blank.png in Resources */,
+				C497FA581E9D262C00E5F0D1 /* Pontus.png in Resources */,
+				C497FA541E9D24CE00E5F0D1 /* Buddy.png in Resources */,
 				C497FA441E9D1B0000E5F0D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +170,7 @@
 			files = (
 				C497FA411E9D1B0000E5F0D1 /* ViewController.swift in Sources */,
 				C497FA3F1E9D1B0000E5F0D1 /* AppDelegate.swift in Sources */,
+				C497FA5E1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,8 +297,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8G7W6WCEM9;
 				INFOPLIST_FILE = MultiPeer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.MultiPeer;
+				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.MultiPeerPuppies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -278,8 +311,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8G7W6WCEM9;
 				INFOPLIST_FILE = MultiPeer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.MultiPeer;
+				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.MultiPeerPuppies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -288,7 +322,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C497FA361E9D1B0000E5F0D1 /* Build configuration list for PBXProject "MultiPeer" */ = {
+		C497FA361E9D1B0000E5F0D1 /* Build configuration list for PBXProject "MultiPeerPuppies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C497FA4B1E9D1B0000E5F0D1 /* Debug */,
@@ -297,13 +331,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C497FA4D1E9D1B0000E5F0D1 /* Build configuration list for PBXNativeTarget "MultiPeer" */ = {
+		C497FA4D1E9D1B0000E5F0D1 /* Build configuration list for PBXNativeTarget "MultiPeerPuppies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C497FA4E1E9D1B0000E5F0D1 /* Debug */,
 				C497FA4F1E9D1B0000E5F0D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MultiPeer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,103 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="Connections: 0" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMi-J6-cby">
+                                <rect key="frame" x="16" y="20" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wgU-U3-iIl">
+                                <rect key="frame" x="16" y="48.5" width="343" height="81"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCi-h6-Oau">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="81"/>
+                                        <state key="normal" title="Button" image="AnnaAvatar.png"/>
+                                        <connections>
+                                            <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BXj-vm-Wb1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMu-2a-5G0">
+                                        <rect key="frame" x="88" y="0.0" width="79.5" height="81"/>
+                                        <state key="normal" title="Button" image="Boo.png"/>
+                                        <connections>
+                                            <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bd7-ob-laa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skQ-Y7-daP">
+                                        <rect key="frame" x="175.5" y="0.0" width="80" height="81"/>
+                                        <state key="normal" title="Button" image="Buddy.png"/>
+                                        <connections>
+                                            <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="79I-X7-YVf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQk-8s-RMd">
+                                        <rect key="frame" x="263.5" y="0.0" width="79.5" height="81"/>
+                                        <state key="normal" title="Button" image="Pontus.png"/>
+                                        <connections>
+                                            <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0uU-gX-N2l"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="YN9-qe-HiW"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank.png" translatesAutoresizingMaskIntoConstraints="NO" id="4BQ-Q4-wc7">
+                                <rect key="frame" x="16" y="138" width="343" height="439.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text=" " textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbe-gc-vlG">
+                                <rect key="frame" x="16" y="585.5" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKl-b9-PqF">
+                                <rect key="frame" x="153" y="613.5" width="68" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connectTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3C1-iu-x2V"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wgU-U3-iIl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1wh-zJ-bCQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4BQ-Q4-wc7" secondAttribute="trailing" priority="998" id="Cz0-gX-e8l"/>
+                            <constraint firstItem="pbe-gc-vlG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" priority="998" id="Dii-JQ-DoD"/>
+                            <constraint firstItem="wgU-U3-iIl" firstAttribute="top" secondItem="XMi-J6-cby" secondAttribute="bottom" constant="8" id="ETB-ZN-NUi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XMi-J6-cby" secondAttribute="trailing" id="J8c-lJ-AWA"/>
+                            <constraint firstItem="ZKl-b9-PqF" firstAttribute="top" secondItem="pbe-gc-vlG" secondAttribute="bottom" constant="8" id="LoW-Ba-Rld"/>
+                            <constraint firstItem="pbe-gc-vlG" firstAttribute="top" secondItem="4BQ-Q4-wc7" secondAttribute="bottom" priority="998" constant="8" id="M8g-Dx-QKw"/>
+                            <constraint firstItem="XMi-J6-cby" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Pqd-du-QD4"/>
+                            <constraint firstItem="4BQ-Q4-wc7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" priority="998" id="XG7-6W-9M6"/>
+                            <constraint firstItem="4BQ-Q4-wc7" firstAttribute="top" secondItem="wgU-U3-iIl" secondAttribute="bottom" constant="8" id="aN9-Ph-VQU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pbe-gc-vlG" secondAttribute="trailing" priority="998" id="fm0-qq-dch"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZKl-b9-PqF" secondAttribute="bottom" constant="20" id="kqB-OS-mPz"/>
+                            <constraint firstItem="XMi-J6-cby" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pfg-lO-GmD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wgU-U3-iIl" secondAttribute="trailing" id="qkN-C7-xHW"/>
+                            <constraint firstItem="ZKl-b9-PqF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sd7-YA-604"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="connectButton" destination="ZKl-b9-PqF" id="H6E-je-kNu"/>
+                        <outlet property="receivedImage" destination="4BQ-Q4-wc7" id="iF7-t1-LRf"/>
+                        <outlet property="senderPeerName" destination="pbe-gc-vlG" id="Xul-9W-kdD"/>
+                        <outlet property="stateLabel" destination="XMi-J6-cby" id="kVL-qU-VOd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AnnaAvatar.png" width="500" height="374"/>
+        <image name="Boo.png" width="1331" height="1150"/>
+        <image name="Buddy.png" width="160" height="164"/>
+        <image name="Pontus.png" width="877" height="874"/>
+        <image name="blank.png" width="81" height="81"/>
+    </resources>
 </document>
