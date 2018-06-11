@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C435B0571EAD1FE300D3674D /* PersonalBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C435B0561EAD1FE300D3674D /* PersonalBeacon.swift */; };
+		C43674DC1EDC7726005228DC /* PeerSessionCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43674DB1EDC7726005228DC /* PeerSessionCoordinatorDelegate.swift */; };
+		C44A9C8120B6440D00B17B5E /* corgi.png in Resources */ = {isa = PBXBuildFile; fileRef = C44A9C8020B6440D00B17B5E /* corgi.png */; };
+		C44A9C8320B8410900B17B5E /* SnowyTricolorSheltie.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C44A9C8220B8410800B17B5E /* SnowyTricolorSheltie.JPG */; };
 		C497FA3F1E9D1B0000E5F0D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497FA3E1E9D1B0000E5F0D1 /* AppDelegate.swift */; };
-		C497FA411E9D1B0000E5F0D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497FA401E9D1B0000E5F0D1 /* ViewController.swift */; };
+		C497FA411E9D1B0000E5F0D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497FA401E9D1B0000E5F0D1 /* MainViewController.swift */; };
 		C497FA441E9D1B0000E5F0D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C497FA421E9D1B0000E5F0D1 /* Main.storyboard */; };
 		C497FA461E9D1B0000E5F0D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C497FA451E9D1B0000E5F0D1 /* Assets.xcassets */; };
 		C497FA491E9D1B0000E5F0D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C497FA471E9D1B0000E5F0D1 /* LaunchScreen.storyboard */; };
@@ -18,12 +22,17 @@
 		C497FA581E9D262C00E5F0D1 /* Pontus.png in Resources */ = {isa = PBXBuildFile; fileRef = C497FA561E9D262C00E5F0D1 /* Pontus.png */; };
 		C497FA5A1E9D289700E5F0D1 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = C497FA591E9D289700E5F0D1 /* blank.png */; };
 		C497FA5E1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497FA5D1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift */; };
+		C4F1873F1ECFD1B600987F99 /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F1873E1ECFD1B600987F99 /* ConnectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C435B0561EAD1FE300D3674D /* PersonalBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalBeacon.swift; sourceTree = "<group>"; };
+		C43674DB1EDC7726005228DC /* PeerSessionCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerSessionCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		C44A9C8020B6440D00B17B5E /* corgi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corgi.png; sourceTree = "<group>"; };
+		C44A9C8220B8410800B17B5E /* SnowyTricolorSheltie.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SnowyTricolorSheltie.JPG; sourceTree = "<group>"; };
 		C497FA3B1E9D1B0000E5F0D1 /* MultiPeerPuppies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiPeerPuppies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C497FA3E1E9D1B0000E5F0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C497FA401E9D1B0000E5F0D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C497FA401E9D1B0000E5F0D1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C497FA431E9D1B0000E5F0D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C497FA451E9D1B0000E5F0D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C497FA481E9D1B0000E5F0D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +43,7 @@
 		C497FA561E9D262C00E5F0D1 /* Pontus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pontus.png; sourceTree = "<group>"; };
 		C497FA591E9D289700E5F0D1 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
 		C497FA5D1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerSessionCoordinator.swift; sourceTree = "<group>"; };
+		C4F1873E1ECFD1B600987F99 /* ConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +76,16 @@
 		C497FA3D1E9D1B0000E5F0D1 /* MultiPeer */ = {
 			isa = PBXGroup;
 			children = (
+				C497FA4A1E9D1B0000E5F0D1 /* Info.plist */,
 				C497FA521E9D24A400E5F0D1 /* Images */,
 				C497FA3E1E9D1B0000E5F0D1 /* AppDelegate.swift */,
-				C497FA4A1E9D1B0000E5F0D1 /* Info.plist */,
+				C4F1873E1ECFD1B600987F99 /* ConnectionViewController.swift */,
+				C497FA5D1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift */,
+				C43674DB1EDC7726005228DC /* PeerSessionCoordinatorDelegate.swift */,
+				C435B0561EAD1FE300D3674D /* PersonalBeacon.swift */,
+				C497FA401E9D1B0000E5F0D1 /* MainViewController.swift */,
 				C497FA471E9D1B0000E5F0D1 /* LaunchScreen.storyboard */,
 				C497FA421E9D1B0000E5F0D1 /* Main.storyboard */,
-				C497FA5D1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift */,
-				C497FA401E9D1B0000E5F0D1 /* ViewController.swift */,
 				C497FA451E9D1B0000E5F0D1 /* Assets.xcassets */,
 			);
 			path = MultiPeer;
@@ -81,6 +94,8 @@
 		C497FA521E9D24A400E5F0D1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C44A9C8220B8410800B17B5E /* SnowyTricolorSheltie.JPG */,
+				C44A9C8020B6440D00B17B5E /* corgi.png */,
 				C497FA501E9D249F00E5F0D1 /* AnnaAvatar.png */,
 				C497FA551E9D262C00E5F0D1 /* Boo.png */,
 				C497FA531E9D24CE00E5F0D1 /* Buddy.png */,
@@ -117,13 +132,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Bob Wakefield";
 				TargetAttributes = {
 					C497FA3A1E9D1B0000E5F0D1 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 8G7W6WCEM9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -150,10 +170,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44A9C8120B6440D00B17B5E /* corgi.png in Resources */,
 				C497FA571E9D262C00E5F0D1 /* Boo.png in Resources */,
 				C497FA491E9D1B0000E5F0D1 /* LaunchScreen.storyboard in Resources */,
 				C497FA461E9D1B0000E5F0D1 /* Assets.xcassets in Resources */,
 				C497FA511E9D249F00E5F0D1 /* AnnaAvatar.png in Resources */,
+				C44A9C8320B8410900B17B5E /* SnowyTricolorSheltie.JPG in Resources */,
 				C497FA5A1E9D289700E5F0D1 /* blank.png in Resources */,
 				C497FA581E9D262C00E5F0D1 /* Pontus.png in Resources */,
 				C497FA541E9D24CE00E5F0D1 /* Buddy.png in Resources */,
@@ -168,9 +190,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C497FA411E9D1B0000E5F0D1 /* ViewController.swift in Sources */,
+				C497FA411E9D1B0000E5F0D1 /* MainViewController.swift in Sources */,
 				C497FA3F1E9D1B0000E5F0D1 /* AppDelegate.swift in Sources */,
 				C497FA5E1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift in Sources */,
+				C4F1873F1ECFD1B600987F99 /* ConnectionViewController.swift in Sources */,
+				C43674DC1EDC7726005228DC /* PeerSessionCoordinatorDelegate.swift in Sources */,
+				C435B0571EAD1FE300D3674D /* PersonalBeacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +231,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -214,7 +241,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -257,7 +288,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -265,7 +298,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

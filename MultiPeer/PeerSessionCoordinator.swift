@@ -6,38 +6,57 @@
 //  Copyright © 2017 Bob Wakefield. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import MultipeerConnectivity
 
 fileprivate let multiPeerServiceType = "cockleburr-peer"
 
-protocol PeerSessionCoordinatorDelegate: class {
-    
-    func imageReceived( peerName: String, image: UIImage ) -> Void
-    
-    func displayError( operation: String, error: NSError ) -> Void
-    
-    func peerCountChanged( count: Int ) -> Void
-    
-    func presentBrowser( _ vc: UIViewController, animated: Bool ) -> Void
-    
-    func closeBrowser( _ success: Bool, animated: Bool ) -> Void
-}
+fileprivate let kDataPeerID = "My Peer ID Data"
 
 class PeerSessionCoordinator: NSObject {
     
-    var peerID: MCPeerID!
-    var mcSession: MCSession!
-    var mcAdvertiserAssistant: MCAdvertiserAssistant!
+    var peerID: MCPeerID
+    var mcSession: MCSession
+    var advertiserAssistant: MCAdvertiserAssistant!
+    var serviceBrowser: MCNearbyServiceBrowser!
+    var info: [String: String]
     
     weak var delegate: PeerSessionCoordinatorDelegate?
     
-    init( name: String, delegate: PeerSessionCoordinatorDelegate ) {
+    // get the saved peer ID if one exists, otherwise create a new peer ID and save it
+    init( name: String, info: [String: String], delegate: PeerSessionCoordinatorDelegate ) {
         
         self.delegate = delegate
 
-        peerID = MCPeerID( displayName: name )
-        mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .required)
+        var tempPeerID: MCPeerID?
+
+        let userDefaults = UserDefaults.standard
+        if let dataPeerID = userDefaults.object(forKey: kDataPeerID) as? Data,
+           let peerID = NSKeyedUnarchiver.unarchiveObject(with: dataPeerID ) as? MCPeerID {
+            
+            tempPeerID = peerID
+        }
+
+        if nil == tempPeerID {
+        
+            tempPeerID = MCPeerID( displayName: name )
+            if let peerID = tempPeerID {
+
+                let dataPeerID = NSKeyedArchiver.archivedData( withRootObject: peerID )
+                userDefaults.set( dataPeerID, forKey: kDataPeerID )
+                userDefaults.synchronize()
+            }
+        }
+        
+        guard let peerID = tempPeerID else {
+            
+            fatalError( "Unable to create a peer ID for an MCSession" )
+        }
+        
+        mcSession = MCSession( peer: peerID, securityIdentity: nil, encryptionPreference: .required )
+        self.peerID = peerID
+        self.info = info
         
         super.init()
 
@@ -46,7 +65,7 @@ class PeerSessionCoordinator: NSObject {
     
     deinit {
         
-        mcAdvertiserAssistant.stop()
+        advertiserAssistant.stop()
         mcSession.disconnect()
     }
     
@@ -67,12 +86,19 @@ class PeerSessionCoordinator: NSObject {
         }
     }
 
-    func startHosting( info: [String: String], action: UIAlertAction! ) {
+    func startHosting( action: UIAlertAction! ) {
         
-        mcAdvertiserAssistant = MCAdvertiserAssistant( serviceType: multiPeerServiceType, discoveryInfo: info, session: mcSession )
-        mcAdvertiserAssistant.start()
+        advertiserAssistant = MCAdvertiserAssistant( serviceType: multiPeerServiceType, discoveryInfo: self.info, session: mcSession )
+        advertiserAssistant.start()
     }
-    
+
+    func startBrowsing() {
+        
+        serviceBrowser = MCNearbyServiceBrowser(peer: peerID, serviceType: multiPeerServiceType )
+        serviceBrowser.delegate = self
+        serviceBrowser.startBrowsingForPeers()
+    }
+
     func joinSession( action: UIAlertAction! ) {
         
         let mcBrowser = MCBrowserViewController( serviceType: multiPeerServiceType, session: mcSession )
@@ -134,7 +160,7 @@ extension PeerSessionCoordinator: MCSessionDelegate {
         
     }
     
-    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
+    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
         
     }
     
@@ -144,12 +170,17 @@ extension PeerSessionCoordinator: MCSessionDelegate {
             
         case MCSessionState.connected:
             print("Connected: \(peerID.displayName)")
+            // serviceBrowser.stopBrowsingForPeers()
             
         case MCSessionState.connecting:
             print("Connecting: \(peerID.displayName)")
             
         case MCSessionState.notConnected:
             print("Not Connected: \(peerID.displayName)")
+//            if 0 == mcSession.connectedPeers.count {
+//                
+//                startBrowsing()
+//            }
         }
      
         updateConnectedPeerCount()
@@ -157,7 +188,7 @@ extension PeerSessionCoordinator: MCSessionDelegate {
 }
 
 extension PeerSessionCoordinator: MCBrowserViewControllerDelegate {
-    
+
     func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
         
         let peerCount = connectedPeerCount
@@ -191,6 +222,59 @@ extension PeerSessionCoordinator: MCBrowserViewControllerDelegate {
             }
         }
     }
+}
+
+extension PeerSessionCoordinator: MCNearbyServiceBrowserDelegate {
     
+    func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) -> Void {
+     
+        print( "Did not start browsing for peers. Error: \(error)")
+    }
+    
+    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) -> Void {
+        
+        if let info = info, self.info == info {
+            
+            print( "Compatible peer: \(peerID) found.")
+           
+            let myHashedPeerID = self.peerID.hashValue
+            let theirHashedPeerID = peerID.hashValue
+            if myHashedPeerID < theirHashedPeerID {
+                
+                browser.invitePeer( peerID, to: mcSession, withContext: nil, timeout: 30.0 )
+            }
+        }
+    }
+    
+    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) -> Void {
+        
+        print( "Lost peer: \(peerID)" )
+    }
     
 }
+
+extension PeerSessionCoordinator {
+    
+    func connectedPeers( in session: Int ) -> Int {
+        
+        return connectedPeerCount
+    }
+    
+    func numberOfSessions() -> Int {
+        
+        return 2
+    }
+    
+    func peerAt( session: Int, connection: Int ) -> MCPeerID? {
+        
+        if 0 == session {
+            return peerID
+        } else if connection < connectedPeerCount {
+            return mcSession.connectedPeers[connection]
+        }
+        
+        return nil
+    }
+    
+}
+

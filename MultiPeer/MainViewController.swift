@@ -11,20 +11,30 @@ import MultipeerConnectivity
 
 fileprivate let info = ["subject": "puppydemo"]
 
-class ViewController: UIViewController {
+fileprivate let beaconLabels = ["OFF", "ON"]
+
+fileprivate let guid: UUID! = UUID( uuidString: "9CAB870B-8319-46F4-BBA6-F21F424A13E6" )
+
+class MainViewController: UIViewController {
     
-    fileprivate var peerSessionCoordinator: PeerSessionCoordinator?
+    fileprivate lazy var peerSessionCoordinator: PeerSessionCoordinator = PeerSessionCoordinator( name: UIDevice.current.name, info: info, delegate: self )
+    
+    fileprivate var personalBeacon: PersonalBeacon?
+
+    @IBOutlet weak var embeddedTableViewController: ConnectionViewController?
     
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var receivedImage: UIImageView!
     @IBOutlet weak var senderPeerName: UILabel!
     @IBOutlet weak var connectButton: UIButton!
+    @IBOutlet weak var beaconOnOff: UIButton!
+    @IBOutlet weak var beaconGUID: UILabel!
     
     @IBAction func avatarButton(_ sender: UIButton) {
         
         if let image = sender.imageView?.image {
 
-            peerSessionCoordinator?.sendImage( img: image )
+            peerSessionCoordinator.sendImage( img: image )
         }
     }
     
@@ -34,14 +44,33 @@ class ViewController: UIViewController {
         
         let alertAction = UIAlertAction( title: "Hurray!", style: .default, handler: actionHandler )
         
-        peerSessionCoordinator?.joinSession( action: alertAction )
+        peerSessionCoordinator.joinSession( action: alertAction )
     }
 
+    @IBAction func beaconOnOffTapped( _ sender: UIButton ) {
+        
+        if nil == self.personalBeacon {
+            
+            self.personalBeacon = PersonalBeacon( uuid: guid, major: 100, minor: 1, power: nil );
+        
+        } else {
+            
+            self.personalBeacon = nil
+        }
+        
+        sender.setTitle( "iBeacon is " + ( nil == self.personalBeacon ? "OFF" : "ON" ), for: .normal )
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
-        peerSessionCoordinator = PeerSessionCoordinator( name: UIDevice.current.name, delegate: self )
+        let actionHandler = { ( action: UIAlertAction ) -> Void in }
+        let alertAction = UIAlertAction( title: "Huzza!", style: .default, handler: actionHandler )
+        peerSessionCoordinator.startHosting( action: alertAction )
+        peerSessionCoordinator.startBrowsing();
+        
+        beaconGUID.text = guid?.uuidString
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,14 +84,22 @@ class ViewController: UIViewController {
         
         super.viewDidAppear( animated )
         
-        let actionHandler = { ( action: UIAlertAction ) -> Void in }
-        let alertAction = UIAlertAction( title: "Huzza!", style: .default, handler: actionHandler )
-        peerSessionCoordinator?.startHosting( info: info, action: alertAction )
-
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if "showConnectionTableView" == segue.identifier {
+            
+            if let targetVC = segue.destination as? ConnectionViewController {
+                
+                targetVC.peerSessionCoordinator = peerSessionCoordinator
+                embeddedTableViewController = targetVC
+            }
+        }
     }
 }
 
-extension ViewController: PeerSessionCoordinatorDelegate {
+extension MainViewController: PeerSessionCoordinatorDelegate {
     
     func imageReceived( peerName: String, image: UIImage ) -> Void {
         
@@ -103,6 +140,7 @@ extension ViewController: PeerSessionCoordinatorDelegate {
             if let strongSelf = self {
                 
                 strongSelf.stateLabel.text = "Connections: \(count)"
+                strongSelf.embeddedTableViewController?.tableView.reloadData()
             }
         }
     }
