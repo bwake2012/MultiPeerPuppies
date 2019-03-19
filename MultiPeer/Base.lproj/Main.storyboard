@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ft-SA-5q0">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ft-SA-5q0">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="Connections: 0" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMi-J6-cby">
-                                <rect key="frame" x="16" y="64" width="343" height="40"/>
+                                <rect key="frame" x="16" y="88" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bwq-p7-QVh"/>
                                 </constraints>
@@ -31,47 +30,54 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wgU-U3-iIl" userLabel="Send Puppy Picture">
-                                <rect key="frame" x="16" y="112" width="343" height="81"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="1000" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wgU-U3-iIl" userLabel="Send Puppy Picture">
+                                <rect key="frame" x="16" y="136" width="343" height="81"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RCi-h6-Oau">
-                                        <rect key="frame" x="0.0" y="0.0" width="50.5" height="81"/>
-                                        <state key="normal" title="Button" image="AnnaAvatar.png"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQr-l0-ZWE" userLabel="AmericanEskimo">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="81"/>
+                                        <state key="normal" image="AmericanEskimo.png"/>
+                                        <connections>
+                                            <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fh3-mk-zyB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RCi-h6-Oau" userLabel="AnnaAvatar">
+                                        <rect key="frame" x="50" y="0.0" width="42.333333333333343" height="81"/>
+                                        <state key="normal" image="AnnaAvatar.png"/>
                                         <connections>
                                             <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BXj-vm-Wb1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="CMu-2a-5G0">
-                                        <rect key="frame" x="58.5" y="0.0" width="50.5" height="81"/>
-                                        <state key="normal" title="Button" image="Boo.png"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="CMu-2a-5G0" userLabel="Boo">
+                                        <rect key="frame" x="100.33333333333333" y="0.0" width="41.999999999999986" height="81"/>
+                                        <state key="normal" image="Boo.png"/>
                                         <connections>
                                             <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bd7-ob-laa"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="skQ-Y7-daP">
-                                        <rect key="frame" x="117" y="0.0" width="50.5" height="81"/>
-                                        <state key="normal" title="Button" image="Buddy.png"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="skQ-Y7-daP" userLabel="Buddy">
+                                        <rect key="frame" x="150.33333333333334" y="0.0" width="42.333333333333343" height="81"/>
+                                        <state key="normal" image="Buddy.png"/>
                                         <connections>
                                             <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="79I-X7-YVf"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="YQk-8s-RMd">
-                                        <rect key="frame" x="175.5" y="0.0" width="50.5" height="81"/>
-                                        <state key="normal" title="Button" image="Pontus.png"/>
-                                        <connections>
-                                            <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0uU-gX-N2l"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ZfK-7I-LKp">
-                                        <rect key="frame" x="234" y="0.0" width="50.5" height="81"/>
-                                        <state key="normal" title="Button" image="corgi.png"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ZfK-7I-LKp" userLabel="Corgi">
+                                        <rect key="frame" x="200.66666666666666" y="0.0" width="42" height="81"/>
+                                        <state key="normal" image="corgi.png"/>
                                         <connections>
                                             <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="itz-Cr-Zek"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="883-Z8-lBU">
-                                        <rect key="frame" x="292.5" y="0.0" width="50.5" height="81"/>
-                                        <state key="normal" title="Button" image="SnowyTricolorSheltie.JPG"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="YQk-8s-RMd" userLabel="Pontus">
+                                        <rect key="frame" x="250.66666666666671" y="0.0" width="42.333333333333343" height="81"/>
+                                        <state key="normal" image="Pontus.png"/>
+                                        <connections>
+                                            <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0uU-gX-N2l"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="883-Z8-lBU" userLabel="SnowyTriColorSheltie">
+                                        <rect key="frame" x="301" y="0.0" width="42" height="81"/>
+                                        <state key="normal" image="SnowyTricolorSheltie.JPG"/>
                                         <connections>
                                             <action selector="avatarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dB8-mt-eWa"/>
                                         </connections>
@@ -82,7 +88,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text=" " textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbe-gc-vlG">
-                                <rect key="frame" x="16" y="201" width="343" height="40"/>
+                                <rect key="frame" x="16" y="225" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="n8M-HQ-DUh"/>
                                 </constraints>
@@ -91,13 +97,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" verticalCompressionResistancePriority="1000" image="blank.png" translatesAutoresizingMaskIntoConstraints="NO" id="4BQ-Q4-wc7">
-                                <rect key="frame" x="16" y="233" width="343" height="329"/>
+                                <rect key="frame" x="16" y="257" width="343" height="425"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="juQ-hb-anY">
-                                <rect key="frame" x="16" y="570.5" width="343" height="40"/>
+                                <rect key="frame" x="16" y="690" width="343" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2m-jX-YMk">
-                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="40"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <state key="normal" title="iBeacon is OFF"/>
                                         <connections>
@@ -105,7 +111,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73w-ux-ls9">
-                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="40"/>
+                                        <rect key="frame" x="171.66666666666663" y="0.0" width="171.33333333333337" height="40"/>
                                         <state key="normal" title="View Connections"/>
                                         <connections>
                                             <segue destination="xqZ-Jv-ckg" kind="show" identifier="showConnectionTableView" id="aSe-iV-BQK"/>
@@ -117,7 +123,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXZ-kX-kL2">
-                                <rect key="frame" x="16" y="619" width="343" height="40"/>
+                                <rect key="frame" x="16" y="738" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Mkw-Ng-0nr"/>
                                 </constraints>
@@ -139,7 +145,7 @@
                             <constraint firstItem="juQ-hb-anY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NgT-qO-djW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BXZ-kX-kL2" secondAttribute="trailing" id="PNm-rx-u7k"/>
                             <constraint firstItem="XMi-J6-cby" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Pqd-du-QD4"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BXZ-kX-kL2" secondAttribute="bottom" constant="8" id="U7c-Cb-9iM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BXZ-kX-kL2" secondAttribute="bottom" id="U7c-Cb-9iM"/>
                             <constraint firstItem="4BQ-Q4-wc7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" priority="998" id="XG7-6W-9M6"/>
                             <constraint firstItem="pbe-gc-vlG" firstAttribute="top" secondItem="wgU-U3-iIl" secondAttribute="bottom" constant="8" symbolic="YES" id="Yh2-9S-mef"/>
                             <constraint firstAttribute="leadingMargin" secondItem="BXZ-kX-kL2" secondAttribute="leading" id="Zwb-RQ-NAV"/>
@@ -153,6 +159,7 @@
                     <connections>
                         <outlet property="beaconGUID" destination="BXZ-kX-kL2" id="hZk-Bg-VCG"/>
                         <outlet property="beaconOnOff" destination="o2m-jX-YMk" id="bnq-lZ-qgp"/>
+                        <outlet property="puppyButtonStack" destination="wgU-U3-iIl" id="aqt-Cj-QFQ"/>
                         <outlet property="receivedImage" destination="4BQ-Q4-wc7" id="iF7-t1-LRf"/>
                         <outlet property="senderPeerName" destination="pbe-gc-vlG" id="Xul-9W-kdD"/>
                         <outlet property="stateLabel" destination="XMi-J6-cby" id="kVL-qU-VOd"/>
@@ -171,11 +178,11 @@
                         <viewControllerLayoutGuide type="bottom" id="hUt-N6-odt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GSP-Sk-dtO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="Connections: 0" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pR6-XY-gM6">
-                                <rect key="frame" x="16" y="64" width="343" height="40"/>
+                                <rect key="frame" x="16" y="88" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1Tg-Fh-Ykr"/>
                                 </constraints>
@@ -184,18 +191,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4nU-1g-7XK">
-                                <rect key="frame" x="16" y="112" width="343" height="555"/>
+                                <rect key="frame" x="16" y="136" width="343" height="642"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="connectedPeer" textLabel="R3e-o0-vEx" style="IBUITableViewCellStyleDefault" id="xVs-LG-8mx">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xVs-LG-8mx" id="bHr-lo-Jc5">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R3e-o0-vEx">
-                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="313" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -237,7 +244,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7ft-SA-5q0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pfm-aS-2K7">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -251,6 +258,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AmericanEskimo.png" width="254" height="340"/>
         <image name="AnnaAvatar.png" width="162" height="122"/>
         <image name="Boo.png" width="162" height="140"/>
         <image name="Buddy.png" width="160" height="164"/>

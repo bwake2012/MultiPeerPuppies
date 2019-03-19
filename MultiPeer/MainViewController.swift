@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var embeddedTableViewController: ConnectionViewController?
     
+    @IBOutlet weak var puppyButtonStack: UIStackView!
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var receivedImage: UIImageView!
     @IBOutlet weak var senderPeerName: UILabel!
@@ -71,6 +72,13 @@ class MainViewController: UIViewController {
         peerSessionCoordinator.startBrowsing();
         
         beaconGUID.text = guid?.uuidString
+        
+        for button in puppyButtonStack.arrangedSubviews {
+            
+            guard let button = button as? UIButton else { continue }
+            
+            button.imageView?.contentMode = .scaleAspectFit
+        }
     }
 
     override func didReceiveMemoryWarning() {

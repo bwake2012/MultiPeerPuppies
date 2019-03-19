@@ -22,6 +22,7 @@
 		C497FA581E9D262C00E5F0D1 /* Pontus.png in Resources */ = {isa = PBXBuildFile; fileRef = C497FA561E9D262C00E5F0D1 /* Pontus.png */; };
 		C497FA5A1E9D289700E5F0D1 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = C497FA591E9D289700E5F0D1 /* blank.png */; };
 		C497FA5E1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497FA5D1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift */; };
+		C49E8E442213713A00BFC9AC /* AmericanEskimo.png in Resources */ = {isa = PBXBuildFile; fileRef = C49E8E432213713A00BFC9AC /* AmericanEskimo.png */; };
 		C4F1873F1ECFD1B600987F99 /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F1873E1ECFD1B600987F99 /* ConnectionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		C497FA561E9D262C00E5F0D1 /* Pontus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pontus.png; sourceTree = "<group>"; };
 		C497FA591E9D289700E5F0D1 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
 		C497FA5D1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerSessionCoordinator.swift; sourceTree = "<group>"; };
+		C49E8E432213713A00BFC9AC /* AmericanEskimo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AmericanEskimo.png; sourceTree = "<group>"; };
 		C4F1873E1ECFD1B600987F99 /* ConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,13 +96,14 @@
 		C497FA521E9D24A400E5F0D1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C44A9C8220B8410800B17B5E /* SnowyTricolorSheltie.JPG */,
-				C44A9C8020B6440D00B17B5E /* corgi.png */,
+				C49E8E432213713A00BFC9AC /* AmericanEskimo.png */,
 				C497FA501E9D249F00E5F0D1 /* AnnaAvatar.png */,
+				C497FA591E9D289700E5F0D1 /* blank.png */,
 				C497FA551E9D262C00E5F0D1 /* Boo.png */,
 				C497FA531E9D24CE00E5F0D1 /* Buddy.png */,
+				C44A9C8020B6440D00B17B5E /* corgi.png */,
 				C497FA561E9D262C00E5F0D1 /* Pontus.png */,
-				C497FA591E9D289700E5F0D1 /* blank.png */,
+				C44A9C8220B8410800B17B5E /* SnowyTricolorSheltie.JPG */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -132,7 +135,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Bob Wakefield";
 				TargetAttributes = {
 					C497FA3A1E9D1B0000E5F0D1 = {
@@ -179,6 +182,7 @@
 				C497FA5A1E9D289700E5F0D1 /* blank.png in Resources */,
 				C497FA581E9D262C00E5F0D1 /* Pontus.png in Resources */,
 				C497FA541E9D24CE00E5F0D1 /* Buddy.png in Resources */,
+				C49E8E442213713A00BFC9AC /* AmericanEskimo.png in Resources */,
 				C497FA441E9D1B0000E5F0D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +239,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -242,6 +247,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -292,6 +298,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -299,6 +306,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

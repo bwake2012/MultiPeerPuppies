@@ -125,9 +125,11 @@ extension PeerSessionCoordinator: MCSessionDelegate {
                     
                     delegate?.displayError(operation: "Send Error", error: error )
                     
-//                    let ac = UIAlertController( title: "Send error", message: error.localizedDescription, preferredStyle: .alert )
-//                    ac.addAction( UIAlertAction( title: "OK", style: .default ) )
-//                    vc.present( ac, animated: true )
+//                    DispatchQueue.main.async {
+//                        let ac = UIAlertController( title: "Send error", message: error.localizedDescription, preferredStyle: .alert )
+//                        ac.addAction( UIAlertAction( title: "OK", style: .default ) )
+//                        vc.present( ac, animated: true )
+//                    }
                 }
             }
         }
