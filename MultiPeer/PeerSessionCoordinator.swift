@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import MultipeerConnectivity
 
+let keyPuppyPicture = "PuppyPicture"
+
 fileprivate let multiPeerServiceType = "cockleburr-peer"
 
 fileprivate let kDataPeerID = "My Peer ID Data"
@@ -114,42 +116,42 @@ extension PeerSessionCoordinator: MCSessionDelegate {
     func sendImage( img: UIImage) {
         
         if mcSession.connectedPeers.count > 0 {
-            
-            if let imageData = UIImagePNGRepresentation(img) {
-                
-                do {
-                    
-                    try mcSession.send( imageData, toPeers: mcSession.connectedPeers, with: .reliable )
-                    
-                } catch let error as NSError {
-                    
-                    delegate?.displayError(operation: "Send Error", error: error )
-                    
-//                    DispatchQueue.main.async {
-//                        let ac = UIAlertController( title: "Send error", message: error.localizedDescription, preferredStyle: .alert )
-//                        ac.addAction( UIAlertAction( title: "OK", style: .default ) )
-//                        vc.present( ac, animated: true )
-//                    }
-                }
+
+            guard let imageData = archiveImage(image: img) else {
+
+                delegate?.displayError(operation: "Archive image to send", error: nil)
+                return
+            }
+
+             do {
+
+                try mcSession.send( imageData, toPeers: mcSession.connectedPeers, with: .reliable )
+
+            } catch let error as NSError {
+
+                delegate?.displayError(operation: "Send Error", error: error )
             }
         }
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        
-        if let image = UIImage(data: data) {
-            
-            let displayName = peerID.displayName
-            
-            DispatchQueue.main.async {
-                
-                [weak self] in
-                
-                if let strongSelf = self {
-                    
-                    // do something with the image
-                    strongSelf.delegate?.imageReceived( peerName: displayName, image: image )
-                }
+
+        guard let image = unarchiveImage(data: data) else {
+
+            delegate?.displayError(operation: "Unarchive received image data", error: nil)
+            return
+        }
+
+        let displayName = peerID.displayName
+
+        DispatchQueue.main.async {
+
+            [weak self] in
+
+            if let strongSelf = self {
+
+                // do something with the image
+                strongSelf.delegate?.imageReceived( peerName: displayName, image: image )
             }
         }
     }
@@ -183,9 +185,27 @@ extension PeerSessionCoordinator: MCSessionDelegate {
 //                
 //                startBrowsing()
 //            }
+            
+        @unknown default:
+            break
         }
      
         updateConnectedPeerCount()
+    }
+}
+
+// Add this optional function in MCSessionDelegate to make the session connection much more reliable
+// If you validate connections with certificates, here is where you do that.
+extension PeerSessionCoordinator {
+
+    func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
+        
+        guard nil == certificate || certificate?.isEmpty ?? true else {
+            
+            fatalError("Session certificates received without validation implemented.")
+        }
+        
+        certificateHandler(true)
     }
 }
 
@@ -280,3 +300,35 @@ extension PeerSessionCoordinator {
     
 }
 
+extension PeerSessionCoordinator {
+
+    func archiveImage(image: UIImage) -> Data? {
+
+        let archiver = NSKeyedArchiver(requiringSecureCoding: true)
+
+        guard let imageData: Data = image.pngData() else { return nil }
+
+        let imageDataString: String = imageData.base64EncodedString()
+
+        archiver.encode(imageDataString, forKey: keyPuppyPicture)
+
+        archiver.finishEncoding()
+
+        return archiver.encodedData
+    }
+
+    func unarchiveImage(data: Data) -> UIImage? {
+
+        guard let unarchiver = try? NSKeyedUnarchiver(forReadingFrom: data) else { return nil }
+        unarchiver.requiresSecureCoding = true
+
+        guard let imageDataString: String = unarchiver.decodeDecodable(String.self, forKey: keyPuppyPicture) else { return nil }
+        unarchiver.finishDecoding()
+
+        guard let imageData = Data(base64Encoded: imageDataString) else { return nil }
+
+        let image = UIImage(data: imageData)
+
+        return image
+    }
+}

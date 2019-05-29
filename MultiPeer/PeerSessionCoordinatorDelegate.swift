@@ -12,7 +12,7 @@ protocol PeerSessionCoordinatorDelegate: class {
     
     func imageReceived( peerName: String, image: UIImage ) -> Void
     
-    func displayError( operation: String, error: NSError ) -> Void
+    func displayError( operation: String, error: NSError? ) -> Void
     
     func peerCountChanged( count: Int ) -> Void
     

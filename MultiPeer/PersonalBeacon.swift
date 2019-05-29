@@ -107,6 +107,8 @@ extension PersonalBeacon: CBPeripheralManagerDelegate {
             break
         case .unsupported:
             break
+        @unknown default:
+            fatalError("unexpected peripheral manager state \(peripheral.state)")
         }
     }
 }

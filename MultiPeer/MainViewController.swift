@@ -124,7 +124,7 @@ extension MainViewController: PeerSessionCoordinatorDelegate {
         }
     }
     
-    func displayError( operation: String, error: NSError ) -> Void {
+    func displayError( operation: String, error: NSError? ) -> Void {
         
         DispatchQueue.main.async {
             
@@ -132,7 +132,7 @@ extension MainViewController: PeerSessionCoordinatorDelegate {
             
             if let strongSelf = self {
                 
-                let ac = UIAlertController( title: operation, message: error.localizedDescription, preferredStyle: .alert )
+                let ac = UIAlertController( title: operation, message: error?.localizedDescription ?? "Undetermined error", preferredStyle: .alert )
                 ac.addAction( UIAlertAction( title: "OK", style: .default ) )
                 strongSelf.present( ac, animated: true )
             }
