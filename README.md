@@ -25,4 +25,4 @@ Acknowlegements:
 
   http://asciiwwdc.com/2014/sessions/709?q=Multipeer
 
-* Pictures of Shelties from my own collection. Picture of the Corgi Jedi found on the internet.
+* Pictures of Shelties from my own collection. Picture of the Corgi Jedi and the American Eskimo found on the internet.
