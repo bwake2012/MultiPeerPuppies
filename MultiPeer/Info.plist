@@ -22,6 +22,8 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This app needs access to the location information.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>This app shares puppy pictures with other iOS devices also running this app.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
@@ -31,6 +33,11 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_peer-puppies._tcp</string>
+		<string>_peer-puppies._udp</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
