@@ -11,6 +11,9 @@
 		C43674DC1EDC7726005228DC /* PeerSessionCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43674DB1EDC7726005228DC /* PeerSessionCoordinatorDelegate.swift */; };
 		C44A9C8120B6440D00B17B5E /* corgi.png in Resources */ = {isa = PBXBuildFile; fileRef = C44A9C8020B6440D00B17B5E /* corgi.png */; };
 		C44A9C8320B8410900B17B5E /* SnowyTricolorSheltie.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C44A9C8220B8410800B17B5E /* SnowyTricolorSheltie.JPG */; };
+		C47E8D93229F2E0D0025001B /* MultiPeerPuppiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E8D92229F2E0D0025001B /* MultiPeerPuppiesTests.swift */; };
+		C47E8D9A229F311A0025001B /* PeerSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497FA5D1E9E6FF200E5F0D1 /* PeerSessionCoordinator.swift */; };
+		C47E8D9B229F31F40025001B /* PeerSessionCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43674DB1EDC7726005228DC /* PeerSessionCoordinatorDelegate.swift */; };
 		C497FA3F1E9D1B0000E5F0D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497FA3E1E9D1B0000E5F0D1 /* AppDelegate.swift */; };
 		C497FA411E9D1B0000E5F0D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497FA401E9D1B0000E5F0D1 /* MainViewController.swift */; };
 		C497FA441E9D1B0000E5F0D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C497FA421E9D1B0000E5F0D1 /* Main.storyboard */; };
@@ -26,11 +29,24 @@
 		C4F1873F1ECFD1B600987F99 /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F1873E1ECFD1B600987F99 /* ConnectionViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C47E8D95229F2E0D0025001B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C497FA331E9D1B0000E5F0D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C497FA3A1E9D1B0000E5F0D1;
+			remoteInfo = MultiPeerPuppies;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		C435B0561EAD1FE300D3674D /* PersonalBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalBeacon.swift; sourceTree = "<group>"; };
 		C43674DB1EDC7726005228DC /* PeerSessionCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerSessionCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		C44A9C8020B6440D00B17B5E /* corgi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corgi.png; sourceTree = "<group>"; };
 		C44A9C8220B8410800B17B5E /* SnowyTricolorSheltie.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SnowyTricolorSheltie.JPG; sourceTree = "<group>"; };
+		C47E8D90229F2E0D0025001B /* MultiPeerPuppiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiPeerPuppiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C47E8D92229F2E0D0025001B /* MultiPeerPuppiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPeerPuppiesTests.swift; sourceTree = "<group>"; };
+		C47E8D94229F2E0D0025001B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C497FA3B1E9D1B0000E5F0D1 /* MultiPeerPuppies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiPeerPuppies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C497FA3E1E9D1B0000E5F0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C497FA401E9D1B0000E5F0D1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +65,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C47E8D8D229F2E0D0025001B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C497FA381E9D1B0000E5F0D1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,10 +82,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C47E8D91229F2E0D0025001B /* MultiPeerPuppiesTests */ = {
+			isa = PBXGroup;
+			children = (
+				C47E8D92229F2E0D0025001B /* MultiPeerPuppiesTests.swift */,
+				C47E8D94229F2E0D0025001B /* Info.plist */,
+			);
+			path = MultiPeerPuppiesTests;
+			sourceTree = "<group>";
+		};
 		C497FA321E9D1B0000E5F0D1 = {
 			isa = PBXGroup;
 			children = (
 				C497FA3D1E9D1B0000E5F0D1 /* MultiPeer */,
+				C47E8D91229F2E0D0025001B /* MultiPeerPuppiesTests */,
 				C497FA3C1E9D1B0000E5F0D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				C497FA3B1E9D1B0000E5F0D1 /* MultiPeerPuppies.app */,
+				C47E8D90229F2E0D0025001B /* MultiPeerPuppiesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,6 +145,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C47E8D8F229F2E0D0025001B /* MultiPeerPuppiesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C47E8D99229F2E0D0025001B /* Build configuration list for PBXNativeTarget "MultiPeerPuppiesTests" */;
+			buildPhases = (
+				C47E8D8C229F2E0D0025001B /* Sources */,
+				C47E8D8D229F2E0D0025001B /* Frameworks */,
+				C47E8D8E229F2E0D0025001B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C47E8D96229F2E0D0025001B /* PBXTargetDependency */,
+			);
+			name = MultiPeerPuppiesTests;
+			productName = MultiPeerPuppiesTests;
+			productReference = C47E8D90229F2E0D0025001B /* MultiPeerPuppiesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C497FA3A1E9D1B0000E5F0D1 /* MultiPeerPuppies */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C497FA4D1E9D1B0000E5F0D1 /* Build configuration list for PBXNativeTarget "MultiPeerPuppies" */;
@@ -134,10 +186,16 @@
 		C497FA331E9D1B0000E5F0D1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1020;
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Bob Wakefield";
 				TargetAttributes = {
+					C47E8D8F229F2E0D0025001B = {
+						CreatedOnToolsVersion = 10.2.1;
+						DevelopmentTeam = 8G7W6WCEM9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C497FA3A1E9D1B0000E5F0D1;
+					};
 					C497FA3A1E9D1B0000E5F0D1 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 8G7W6WCEM9;
@@ -164,11 +222,19 @@
 			projectRoot = "";
 			targets = (
 				C497FA3A1E9D1B0000E5F0D1 /* MultiPeerPuppies */,
+				C47E8D8F229F2E0D0025001B /* MultiPeerPuppiesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C47E8D8E229F2E0D0025001B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C497FA391E9D1B0000E5F0D1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,6 +256,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C47E8D8C229F2E0D0025001B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C47E8D93229F2E0D0025001B /* MultiPeerPuppiesTests.swift in Sources */,
+				C47E8D9B229F31F40025001B /* PeerSessionCoordinatorDelegate.swift in Sources */,
+				C47E8D9A229F311A0025001B /* PeerSessionCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C497FA371E9D1B0000E5F0D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,6 +280,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C47E8D96229F2E0D0025001B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C497FA3A1E9D1B0000E5F0D1 /* MultiPeerPuppies */;
+			targetProxy = C47E8D95229F2E0D0025001B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C497FA421E9D1B0000E5F0D1 /* Main.storyboard */ = {
@@ -225,6 +309,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C47E8D97229F2E0D0025001B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8G7W6WCEM9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MultiPeerPuppiesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.MultiPeerPuppiesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiPeerPuppies.app/MultiPeerPuppies";
+			};
+			name = Debug;
+		};
+		C47E8D98229F2E0D0025001B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8G7W6WCEM9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MultiPeerPuppiesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.MultiPeerPuppiesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiPeerPuppies.app/MultiPeerPuppies";
+			};
+			name = Release;
+		};
 		C497FA4B1E9D1B0000E5F0D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -251,6 +382,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -275,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -312,6 +444,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -330,7 +463,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -346,7 +479,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8G7W6WCEM9;
 				INFOPLIST_FILE = MultiPeer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.MultiPeerPuppies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -360,7 +493,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8G7W6WCEM9;
 				INFOPLIST_FILE = MultiPeer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.cockleburr.MultiPeerPuppies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -371,6 +504,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C47E8D99229F2E0D0025001B /* Build configuration list for PBXNativeTarget "MultiPeerPuppiesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C47E8D97229F2E0D0025001B /* Debug */,
+				C47E8D98229F2E0D0025001B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C497FA361E9D1B0000E5F0D1 /* Build configuration list for PBXProject "MultiPeerPuppies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -12,19 +12,24 @@ import MultipeerConnectivity
 
 let keyPuppyPicture = "PuppyPicture"
 
-fileprivate let multiPeerServiceType = "cockleburr-peer"
+fileprivate let multiPeerServiceType = "peer-puppies"
 
 fileprivate let kDataPeerID = "My Peer ID Data"
 
 class PeerSessionCoordinator: NSObject {
     
-    var peerID: MCPeerID
-    var mcSession: MCSession
-    var advertiserAssistant: MCAdvertiserAssistant!
-    var serviceBrowser: MCNearbyServiceBrowser!
-    var info: [String: String]
+    var peerID: MCPeerID?
+    var mcSession: MCSession?
+    var advertiserAssistant: MCAdvertiserAssistant?
+    var serviceBrowser: MCNearbyServiceBrowser?
+    var info: [String: String] = [:]
     
     weak var delegate: PeerSessionCoordinatorDelegate?
+
+    override init() {
+
+        super.init()
+    }
     
     // get the saved peer ID if one exists, otherwise create a new peer ID and save it
     init( name: String, info: [String: String], delegate: PeerSessionCoordinatorDelegate ) {
@@ -35,7 +40,7 @@ class PeerSessionCoordinator: NSObject {
 
         let userDefaults = UserDefaults.standard
         if let dataPeerID = userDefaults.object(forKey: kDataPeerID) as? Data,
-           let peerID = NSKeyedUnarchiver.unarchiveObject(with: dataPeerID ) as? MCPeerID {
+            let peerID = try? NSKeyedUnarchiver.unarchivedObject(ofClass: MCPeerID.self, from: dataPeerID ) {
             
             tempPeerID = peerID
         }
@@ -45,9 +50,11 @@ class PeerSessionCoordinator: NSObject {
             tempPeerID = MCPeerID( displayName: name )
             if let peerID = tempPeerID {
 
-                let dataPeerID = NSKeyedArchiver.archivedData( withRootObject: peerID )
-                userDefaults.set( dataPeerID, forKey: kDataPeerID )
-                userDefaults.synchronize()
+                if let dataPeerID = try? NSKeyedArchiver.archivedData(withRootObject: peerID, requiringSecureCoding: true) {
+
+                    userDefaults.set( dataPeerID, forKey: kDataPeerID )
+                    userDefaults.synchronize()
+                }
             }
         }
         
@@ -62,16 +69,16 @@ class PeerSessionCoordinator: NSObject {
         
         super.init()
 
-        mcSession.delegate = self
+        mcSession?.delegate = self
     }
     
     deinit {
         
-        advertiserAssistant.stop()
-        mcSession.disconnect()
+        advertiserAssistant?.stop()
+        mcSession?.disconnect()
     }
     
-    var connectedPeerCount: Int { return mcSession.connectedPeers.count }
+    var connectedPeerCount: Int { return mcSession?.connectedPeers.count ?? 0 }
     
     fileprivate func updateConnectedPeerCount() -> Void {
         
@@ -89,19 +96,35 @@ class PeerSessionCoordinator: NSObject {
     }
 
     func startHosting( action: UIAlertAction! ) {
+
+        guard let mcSession = self.mcSession else {
+
+            return
+        }
         
         advertiserAssistant = MCAdvertiserAssistant( serviceType: multiPeerServiceType, discoveryInfo: self.info, session: mcSession )
-        advertiserAssistant.start()
+        advertiserAssistant?.start()
     }
 
     func startBrowsing() {
-        
-        serviceBrowser = MCNearbyServiceBrowser(peer: peerID, serviceType: multiPeerServiceType )
+
+        guard let peerID = self.peerID else {
+
+            return
+        }
+
+        let serviceBrowser = MCNearbyServiceBrowser(peer: peerID, serviceType: multiPeerServiceType )
         serviceBrowser.delegate = self
         serviceBrowser.startBrowsingForPeers()
+        self.serviceBrowser = serviceBrowser
     }
 
     func joinSession( action: UIAlertAction! ) {
+
+        guard let mcSession = self.mcSession else {
+
+            return
+        }
         
         let mcBrowser = MCBrowserViewController( serviceType: multiPeerServiceType, session: mcSession )
         mcBrowser.delegate = self
@@ -114,6 +137,8 @@ class PeerSessionCoordinator: NSObject {
 extension PeerSessionCoordinator: MCSessionDelegate {
     
     func sendImage( img: UIImage) {
+
+        guard let mcSession = self.mcSession else { return }
         
         if mcSession.connectedPeers.count > 0 {
 
@@ -123,7 +148,7 @@ extension PeerSessionCoordinator: MCSessionDelegate {
                 return
             }
 
-             do {
+            do {
 
                 try mcSession.send( imageData, toPeers: mcSession.connectedPeers, with: .reliable )
 
@@ -254,6 +279,8 @@ extension PeerSessionCoordinator: MCNearbyServiceBrowserDelegate {
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) -> Void {
+
+        guard let mcSession = self.mcSession else { return }
         
         if let info = info, self.info == info {
             
@@ -288,10 +315,13 @@ extension PeerSessionCoordinator {
     }
     
     func peerAt( session: Int, connection: Int ) -> MCPeerID? {
-        
+
+        guard let mcSession = self.mcSession else { return nil }
+
         if 0 == session {
             return peerID
         } else if connection < connectedPeerCount {
+
             return mcSession.connectedPeers[connection]
         }
         

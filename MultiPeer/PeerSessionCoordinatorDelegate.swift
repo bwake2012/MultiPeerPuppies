@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PeerSessionCoordinatorDelegate: class {
+protocol PeerSessionCoordinatorDelegate: AnyObject {
     
     func imageReceived( peerName: String, image: UIImage ) -> Void
     
